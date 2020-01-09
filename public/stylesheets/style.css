@@ -1,0 +1,61 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #1da1f2!important;
+}
+
+a {
+  color: #00B7FF;
+}
+
+li {
+  list-style-type: none;
+  border: blue 1px solid;
+  border-radius: 12%;
+  width: 40%;
+  text-align: center;
+  display: flex;
+}
+
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  color: white;
+}
+
+.title {
+  display: flex;
+}
+
+form p {
+  color: red;
+}
+
+button, a {
+  text-decoration: none!important;
+  color: white!important;
+  width: 10%;
+}
+
+nav {
+  display: flex!important;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.option {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.option button {
+  width: max-content;
+  height: max-content;
+}

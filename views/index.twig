@@ -1,0 +1,56 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <form action="" method="" class="form-group row" id="">
+    <div>
+        <input type="text" id="search" placeholder="Filtrer par mots">
+    </div>
+  </form>
+  {% if user.name %}
+    <nav> 
+      <button class="btn btn-primary"><a href="/users/logout">Déconnexion</a></button>
+    </nav>
+  {% else %}
+    <nav>
+    <button class="btn btn-primary"><a href="/users/userCo">Connexion</a></button>
+    </nav>
+  {% endif %}
+  <div class="title"> 
+    <h1>{{title}}</h1>
+    <img src="../images/bird.png" alt="oiseau mort" width="2%" height="2%"> 
+  </div>
+    <div id="post">
+<ul>
+  {% if user.name %}
+    <li class="card">
+        <form action="" method="POST" id="msg">
+          <div>
+            <textarea name="message" class="form-control"></textarea>
+          </div>
+          <div>
+            <input type="submit" value="Envoyer" class="btn btn-primary">
+          </div>
+        </form>
+    </li>
+  {% endif %}
+    </br>
+  {% for tweet in posts | reverse %}
+    <li class="card">
+      <p class="card-title"> {{ tweet.tweet }} </p>
+      <p class="card-subtitle mb-2 text-muted"> {{ tweet.user.name }} </p> 
+      <p class="card-header"> {{ tweet.date|date("d/m/Y g:i") }} </p>
+      <div class="option"> 
+        {% if user.name == tweet.user.name %}
+          <button class="btn btn-secondary active"><a href="/tweet/{{tweet._id}}">Editer</a></button>
+          <button class="btn btn-secondary active"><a href="/tweet/{{tweet._id}}">Effacer</a></button>
+          <button class="btn btn-secondary active"> &#x2661{{tweet.likes}}</button>
+        {% endif %}
+      </div>
+    </li> </br>
+
+  {% endfor %}
+</ul>
+  </div> 
+
+{% endblock %}
+

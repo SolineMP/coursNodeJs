@@ -1,0 +1,17 @@
+
+<ul>
+  {% for tweet in posts | reverse %}
+    <li class="card">
+      <p class="card-title"> {{ tweet.tweet }} </p>
+      <p class="card-subtitle mb-2 text-muted"> {{ tweet.user.name }} </p> 
+      <p class="card-header"> {{ tweet.date|date("d/m/Y g:i") }} </p> 
+      {% if user.name == tweet.user.name %}
+      <button class="btn btn-secondary active"><a href="/tweet/{{tweet._id}}">Editer</a></button>
+      <button class="btn btn-secondary active"><a href="/tweet/{{tweet._id}}">Supprimer</a></button>
+      {% endif %}
+    </li> </br>
+    
+{% endfor %}
+</ul>
+
+
